@@ -1,0 +1,32 @@
+<!Doctype>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <h1>CodeBusters</h1>
+    <div class="login-page">
+	<div class="form">
+	 <form class="registration-form">
+	 <input type="text" placeholder="username"/>
+	 <input type="password" placeholder="password"/>
+	 <input type="text" placeholder="email id"/>
+	 <button>Create</button>
+	 <p class="message">Already Registered?<a href="login.html">Login</a></p>
+    </form>
+   </div>
+   </div>
+   
+   
+   
+   <script src='https://code.jquery.com/jquery-3.2.1.min.js'>
+   </script>
+    
+	<script>
+	$('.message a').click(function(){
+	$('form').animate({height:"toggle",opacity: "toggle"}, slow);
+	});
+    </script>
+</body>
+
+</html>
