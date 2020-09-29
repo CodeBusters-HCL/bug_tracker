@@ -20,4 +20,5 @@
     {% csrf_token %}
     {{form}}
     <input type="submit" value="Submit">
-</form>
+</form><br \>
+Dont have an account? <a href="{% url 'main:register' %}"><button>Register</button></a>

@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 
 from django.http import HttpResponse
 from .models import Bug
-from .forms import login_form, bug_creation_form
+from .forms import login_form, bug_creation_form, register_form
 
 # Create your views here.
 
@@ -25,15 +25,24 @@ def detail(request, bug_id):
     return render(request, 'main/detail.html', {'bug':bug})
 
 def login_view(request):
-    print(request.POST)
     return render(request, 'main/login.html', {'form':login_form})
 
+# def register_view(request):
+#     print(request.POST)
+#     if(request.password==request.confirm_Password):
+#         return render(request, 'main/register.html', {'form':register_form})           # work with this later
+#     else:
+#         return render(request, 'main/pass_no_match.html')
+
 def register_view(request):
-    return render(request, 'main/register.html')
+    return render(request, 'main/register.html', {'form':register_form})
+
 
 def new_bug(request):
-    print(request.POST)
-    return render(request, 'main/user_bug_creation.html', {'form':bug_creation_form})
+    form = bug_creation_form(request.POST or None)
+    if form.is_valid():
+        form.save()
+    return render(request, 'main/user_bug_creation.html', {'form':form})
 
 # def new_bug(request):
 #     return render(request, 'main/user_bug_creation.html')
