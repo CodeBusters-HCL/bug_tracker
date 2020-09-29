@@ -23,7 +23,7 @@ def register_view(request):
     return render(request, 'main/register.html')
 
 def new_bug(request):
-    return render(request, 'main/bug_creation.html')
+    return render(request, 'main/user_bug_creation.html')
 
 # def welcome_view(request,username):
 #     username=request.GET(username)

@@ -1,21 +1,23 @@
+
 <a href="{% url 'main:login' %}"><button>Login</button></a>
+<a href="{% url 'main:newbug' %}"><button>Create Bug</button></a>
 
 {% if recent_bug_reports %}
-<table border="1">
-    <th>Bug ID</th>
-    <th>Category</th>
-    <th>Summary</th>
-    <th>Severity</th>
-    <th>Created On</th>
-    <th>Status</th>
+<table border="1px solid-black" border-collapse: collapse;>
+    <th><a style="text-decoration:none" href="">Bug ID</a></th>
+    <th><a style="text-decoration:none" href="">Category</a></th>
+    <th><a style="text-decoration:none" href="">Summary</a></th>
+    <th><a style="text-decoration:none" href="">Severity</a></th>
+    <th><a style="text-decoration:none" href="">Created On</a></th>
+    <th><a style="text-decoration:none" href="">Status</a></th>
     {% for bug in recent_bug_reports %}
     <tr>
-    <td><a href="{% url 'main:detail' bug.id %}">{{ bug.id }}</a></td>
-    <td><a href="{% url 'main:detail' bug.id %}">{{ bug.bug_category }}</a></td>
-    <td><a href="{% url 'main:detail' bug.id %}">{{ bug.bug_summary }}</a></td>
-    <td><a href="{% url 'main:detail' bug.id %}">{{ bug.bug_severity }}</a></td>
-    <td><a href="{% url 'main:detail' bug.id %}">{{ bug.date_reported }}</a></td>
-    <td><a href="{% url 'main:detail' bug.id %}">{{ bug.bug_status }}</a></td>
+    <td><a style="text-decoration:none" href="{% url 'main:detail' bug.id %}">{{ bug.id }}</a></td>
+    <td><a style="text-decoration:none" href="{% url 'main:detail' bug.id %}">{{ bug.bug_category }}</a></td>
+    <td><a style="text-decoration:none" href="{% url 'main:detail' bug.id %}">{{ bug.bug_summary }}</a></td>
+    <td><a style="text-decoration:none" href="{% url 'main:detail' bug.id %}">{{ bug.bug_severity }}</a></td>
+    <td><a style="text-decoration:none" href="{% url 'main:detail' bug.id %}">{{ bug.date_reported }}</a></td>
+    <td><a style="text-decoration:none" href="{% url 'main:detail' bug.id %}">{{ bug.bug_status }}</a></td>
     </tr>
     {% endfor %}
 </table>
