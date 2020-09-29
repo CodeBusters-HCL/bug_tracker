@@ -1,4 +1,4 @@
-
+<!--
 <!DOCTYPE html>
 
 <html>
@@ -14,4 +14,10 @@
         Don't have an account? <a href="{% url 'main:register'%}"><button>Register</button></a>
     </body>
 
-</html>
+</html> -->
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="Submit">
+</form>

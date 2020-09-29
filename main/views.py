@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 
 from django.http import HttpResponse
 from .models import Bug
+from .forms import login_form, bug_creation_form
 
 # Create your views here.
 
@@ -12,18 +13,30 @@ def home_page(request):
     }
     return render(request, 'main/home_page.html', context)
 
+# def sort_by_id(request):
+#     recent_bug_reports = Bug.objects.order_by('-id')[:20]
+#     context = {
+#         'recent_bug_reports': recent_bug_reports,
+#     }
+#     return render(request, 'main/home_page_by_id.html', context)
+
 def detail(request, bug_id):
     bug=get_object_or_404(Bug, pk=bug_id)
     return render(request, 'main/detail.html', {'bug':bug})
 
 def login_view(request):
-    return render(request, 'main/login.html')
+    print(request.POST)
+    return render(request, 'main/login.html', {'form':login_form})
 
 def register_view(request):
     return render(request, 'main/register.html')
 
 def new_bug(request):
-    return render(request, 'main/user_bug_creation.html')
+    print(request.POST)
+    return render(request, 'main/user_bug_creation.html', {'form':bug_creation_form})
+
+# def new_bug(request):
+#     return render(request, 'main/user_bug_creation.html')
 
 # def welcome_view(request,username):
 #     username=request.GET(username)

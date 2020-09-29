@@ -1,16 +1,5 @@
-
-
-Summary: <br \>
-<textarea name="summary" placeholder="Summary of the bug" cols="80"></textarea><br \><br \><br \>
-Description:<br \><br \>
-<textarea name="description" placeholder="Enter the Description of the bug" rows="20" cols="80"></textarea><br \><br \><br \>
-Category: <input type="text" name="Category" placeholder="Category"><br \><br \><br \>
-Severity: <select name="severity">
-    <option value="severity">Low</option>
-    <option value="severity">Medium</option>
-    <option value="severity">High</option>
-    <option value="severity">Critical</option>
-</select><br \><br \><br \>
-
-<a href=""><button>Submit</button></a>
-<!-- <input type="radio" name="low"> Low  <input type="radio" name="medium"> Medium  <input type="radio" name="high"> High  <input type="radio" name="critical"> Critical -->
+<form action="" method = "post">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="Submit">
+</form>

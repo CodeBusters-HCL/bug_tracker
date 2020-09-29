@@ -22,8 +22,9 @@ class Bug(models.Model):
     bug_severity = models.CharField(max_length=8, choices=severity_choices, default='low')
     bug_desc = models.TextField(max_length=500)
     bug_status = models.CharField(max_length=20, choices=status, default='unassigned')
-    date_reported = models.DateTimeField('date_published')
+    date_reported = models.DateTimeField(default=timezone.now())
 
     def __str__(self):
         return self.bug_summary
+
 
